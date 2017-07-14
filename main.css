@@ -1,0 +1,39 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+button {
+  background-color: #65b356;
+  color: #fff;
+  font-size: 1.5em;
+  border: 1px solid #fff;
+  width: 3em;
+  height: 3em;
+  margin: 0;
+}
+
+button:hover {
+  background-color: #83c178;
+}
+
+div#display {
+  background-color: #65b356;
+  color: #fff;
+  font-size: 1.5em;
+  border: 1px solid #fff;
+  width: 8.9em;
+  height: 3em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+}
+
+/*#517948*/
