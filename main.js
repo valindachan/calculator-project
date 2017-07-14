@@ -1,25 +1,36 @@
-let input = []
+let input = ""
+let inputsReadyToCalc = []
 let display = document.getElementById("display")
+
+// console.log(inputsReadyToCalc)
 
 function calc(obj) {
   // Convert data type
   if (obj.className === "num") {
     // obj = parseInt(obj)
-    input.push(parseInt(obj.value))
+    input += obj.value
+    // input.push(parseInt(obj.value))
     // display.innerHTML = input
-    console.log(obj.value)
+    console.log(input)
   } else if (obj.className === "cancel") {
-    input = []
+    input = ""
+    inputsReadyToCalc = []
     display.innerHTML = input
-  } else if (obj === "/" || obj === "-") {
-  } else if (obj === "=") {
-    input = []
-    display.innerHTML = "Evaluating..."
+  } else if (obj.className === "operator" && input.length != 0) {
+    inputsReadyToCalc.push(input, obj.value)
+    input = ""
+    console.log(inputsReadyToCalc)
+  } else if (obj.className === "evaluate" && input.length != 0) {
+    // Equal sign was selected. Show results and then clear memory
+    let total = 0
+    // let term = input[i].split("/")
+    for (var i = 0; i < inputsReadyToCalc.length; i++) {
+      console.log(total)
+      return total
+    }
   }
-  // console.log(input)
-  // input.push(obj.value)
   display.innerHTML = input
-  // console.log(input, typeof obj)
+
   return input
 }
 
