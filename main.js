@@ -1,23 +1,27 @@
 let input = []
 let display = document.getElementById("display")
 
-function calc(value) {
+function calc(obj) {
   // Convert data type
-  if (value == "1") {
-    value = parseInt(value)
-    input.push(value)
-    display.innerHTML = input
-  } else if (value === "C") {
+  if (obj.className === "num") {
+    // obj = parseInt(obj)
+    input.push(parseInt(obj.value))
+    // display.innerHTML = input
+    console.log(obj.value)
+  } else if (obj.className === "cancel") {
     input = []
     display.innerHTML = input
-  } else if (value === "/" || value === "-") {
-  } else if (value === "=") {
+  } else if (obj === "/" || obj === "-") {
+  } else if (obj === "=") {
     input = []
     display.innerHTML = "Evaluating..."
   }
-  console.log(input)
-  input.push(value)
+  // console.log(input)
+  // input.push(obj.value)
   display.innerHTML = input
-  console.log(input, typeof value)
+  // console.log(input, typeof obj)
   return input
 }
+
+// RETURNS CLASS NAME
+// console.log(obj.className)
