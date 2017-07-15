@@ -7,16 +7,15 @@ function calc(obj) {
   // Convert data type
   if (obj.className === "num") {
     input += obj.value
-    // input.push(parseFloat(obj.value))
     updateInputDisplay(input)
     console.log(input)
   } else if (obj.className === "cancel") {
     clearDisplay()
-    inputsReadyToCalc = []
+    clearInputsReadyToCalc()
     updateInputDisplay(input)
   } else if (obj.className === "operator" && input.length != 0) {
     // Display operator but doesn't save
-    display.innerHTML = obj.value
+    updateInputDisplay(obj.value)
     // Save last input and the operator that was just put in
     inputsReadyToCalc.push(parseFloat(input), obj.value)
     // Reset input
@@ -27,7 +26,7 @@ function calc(obj) {
     total = evaluate(inputsReadyToCalc)
     updateInputDisplay(total)
     clearDisplay()
-    inputsReadyToCalc = []
+    clearInputsReadyToCalc()
     input += total
   }
 
@@ -41,6 +40,10 @@ function updateInputDisplay(displayData) {
 
 function clearDisplay() {
   input = ""
+}
+
+function clearInputsReadyToCalc() {
+  inputsReadyToCalc = []
 }
 
 function evaluate(inputsReadyToCalc) {
