@@ -3,55 +3,47 @@ let input = ""
 let inputsReadyToCalc = []
 let display = document.getElementById("display")
 
-// console.log(inputsReadyToCalc)
-
 function calc(obj) {
   // Convert data type
   if (obj.className === "num") {
-    // obj = parseInt(obj)
     input += obj.value
-    // input.push(parseInt(obj.value))
-    display.innerHTML = input
+    // input.push(parseFloat(obj.value))
+    updateInputDisplay(input)
     console.log(input)
   } else if (obj.className === "cancel") {
-    input = ""
+    clearDisplay()
     inputsReadyToCalc = []
-    display.innerHTML = input
+    updateInputDisplay(input)
   } else if (obj.className === "operator" && input.length != 0) {
     // Display operator but doesn't save
     display.innerHTML = obj.value
     // Save last input and the operator that was just put in
-    inputsReadyToCalc.push(parseInt(input), obj.value)
+    inputsReadyToCalc.push(parseFloat(input), obj.value)
     // Reset input
-    input = ""
+    clearDisplay()
     console.log(inputsReadyToCalc)
   } else if (obj.className === "evaluate" && input.length != 0) {
-    inputsReadyToCalc.push(parseInt(input, obj.value))
+    inputsReadyToCalc.push(parseFloat(input, obj.value))
     total = evaluate(inputsReadyToCalc)
-    display.innerHTML = total
-    input = ""
+    updateInputDisplay(total)
+    clearDisplay()
     inputsReadyToCalc = []
     input += total
-    // inputsReadyToCalc.push(total)
-    // console.log(inputsReadyToCalc)
-    // console.log(inputsReadyToCalc)
-    // _calculate(100, "+", 300)
-    // Equal sign was selected. Show results and then clear memory
-
-    // let term = input[i].split("/")
   }
-  // display.innerHTML = input
 
   return input
 }
 
-function evaluate(inputsReadyToCalc) {
-  // for (var i = 0; i < inputsReadyToCalc.length; i++) {
-  //   console.log(total)
-  //   return total
-  // }
-  // let pieces = inputsReadyToCalc.split(",")
+function updateInputDisplay(displayData) {
+  display.innerHTML = displayData
+  return
+}
 
+function clearDisplay() {
+  input = ""
+}
+
+function evaluate(inputsReadyToCalc) {
   for (var i = 0; i < inputsReadyToCalc.length; i += 3) {
     let term1 = inputsReadyToCalc[i]
     let op = inputsReadyToCalc[i + 1]
@@ -79,9 +71,4 @@ function evaluate(inputsReadyToCalc) {
     console.log(total)
     return total
   }
-
-  // input.push(total)
 }
-
-// RETURNS CLASS NAME
-// console.log(obj.className)
