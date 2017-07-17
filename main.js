@@ -1,3 +1,15 @@
+// Basic calculator
+// Can add, subtract, divide and multiple two numbers (with decimals) at a time
+//
+//
+// Future To Do
+// Make text in display smaller if the number displayed is long
+// Chain complex operations
+// Add a button to calculate the Modulo of 2 numbers
+// Add a button to calculate the Square Root of 2 numbers
+// Add a decimal button
+// Keep track of all the calculations so that you can scroll back through them
+
 // Variable to hold latest input
 let input = ""
 
