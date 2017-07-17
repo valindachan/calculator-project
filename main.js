@@ -1,7 +1,7 @@
 // Variable to hold latest input
 let input = ""
 let inputsReadyToCalc = []
-let display = document.getElementById("display")
+let display = document.getElementById("display-text")
 
 function calc(obj) {
   // Convert data type

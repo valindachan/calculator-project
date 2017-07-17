@@ -37,6 +37,10 @@ div#display {
   align-items: center;
 }
 
+p#display-text {
+  margin-right: 25px;
+}
+
 .row {
   display: flex;
 }
