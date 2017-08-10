@@ -38,11 +38,9 @@ div#display {
 }
 
 p#display-text {
-  margin-right: 25px;
+  margin: 0 25px 0 25px;
 }
 
 .row {
   display: flex;
 }
-
-/*#517948*/
